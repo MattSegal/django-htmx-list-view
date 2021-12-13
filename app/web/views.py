@@ -7,6 +7,18 @@ POSTS_PER_PAGE = 12
 
 
 def list_view(request):
+    posts, search = _search_posts(request)
+    context = {"posts": posts, "search": search, "is_search_view": False}
+    return render(request, "list.html", context)
+
+
+def list_search_view(request):
+    posts, search = _search_posts(request)
+    context = {"posts": posts, "search": search, "is_search_view": True}
+    return render(request, "search_results.html", context)
+
+
+def _search_posts(request):
     search = request.GET.get("search")
     page = request.GET.get("page")
     posts = Post.objects.all()
@@ -21,8 +33,4 @@ def list_view(request):
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
 
-    context = {
-        "posts": posts,
-        "search": search or "",
-    }
-    return render(request, "list.html", context)
+    return posts, search or ""

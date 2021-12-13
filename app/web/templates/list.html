@@ -18,38 +18,27 @@
 <body>
     <main  class="ui container">
         <h1 class="ui header center aligned">List View</h1>
-
-        <form class="centred ui form">
-            <input type="text" name="search" placeholder="Search..." value="{{ search }}">
+        <form class="ui form centred">
+            <input 
+                name="search"
+                placeholder="Search..."
+                type="text" 
+                value="{{ search }}"
+                hx-get="{% url 'search' %}" 
+                hx-trigger="keyup changed delay:500ms" 
+                hx-target="#search-results"
+                hx-swap="outerHTML"
+            />
         </form>
-        {% if posts %}
-            <div class="ui cards">
-                {% for post in posts %}
-                    <div class="ui card">
-                        <div class="image">
-                            <img src="{{ post.image.url }}">
-                        </div>
-                        <div class="content">
-                            <a class="header">{{ post.title }}</a>
-                        </div>
-                    </div>
-
-                {% endfor %}
-            </div>
-        {% else %}
-            <h3 class="ui header center aligned">No results!</h3>               
-        {% endif %}
-
-        {% if posts.has_next %}
-            <div class="ui divider"></div>
-
-            <a href="{% url 'list' %}?page={{ posts.next_page_number }}&search={{search}}">
-                <button class="ui button primary">
-                    Next Page
-                </button>
-            </a>
-        {% endif %}
-
+        {% include 'search_results.html' %}
+        {% include 'search_load_more.html' %}
     </main>
+    <script type="text/javascript" src="{% static 'htmx.min.js' %}"></script>
+    <script>
+      document.body.addEventListener('htmx:configRequest', (event) => {
+        event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+      })
+    </script>
+
 </body>
 </html>
