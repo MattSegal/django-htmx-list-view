@@ -1,6 +1,13 @@
-# App Template
+# Django + htmx list view
 
-A template for small Django tutorial apps
+This repo demonstrates how to use htmx for a paginated, searchable list view in Django:
+
+- [Before adding htmx](https://github.com/MattSegal/django-htmx-list-view/tree/before-htmx)
+- [After adding htmx](https://github.com/MattSegal/django-htmx-list-view/tree/after-htmx)
+
+This repo is a part of this [tutorial article](https://mattsegal.dev/django-htmx-list-view.html).
+
+https://www.loom.com/share/d087a55bd667449386edd54868369f7f
 
 ## Setup
 
