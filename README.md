@@ -7,6 +7,8 @@ This repo demonstrates how to use [htmx](https://htmx.org/) for a paginated, sea
 
 This repo is a part of this [tutorial article](https://mattsegal.dev/django-htmx-list-view.html). View a quick video demo [here](https://www.loom.com/share/d087a55bd667449386edd54868369f7f)
 
+I've also made an introduction to HTMX video [here](https://www.youtube.com/watch?v=414ONE1UbCA).
+
 ## Setup
 
 Follow these instructions to try this demo out locally.
