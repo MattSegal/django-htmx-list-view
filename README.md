@@ -26,6 +26,9 @@ cd app
 # Setup database.
 ./manage.py migrate
 
+# Setup test data.
+./manage.py setup_test_data
+
 # Run the development server.
 ./manage.py runserver
 

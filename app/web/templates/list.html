@@ -1,0 +1,55 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>
+        List View
+    </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'semantic/semantic.min.css' %}">
+    <script type="text/javascript" src="{% static 'semantic/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'semantic/semantic.min.js' %}"></script>
+    <style>
+        main {
+           padding-top: 1rem;
+           padding-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <main  class="ui container">
+        <h1 class="ui header center aligned">List View</h1>
+
+        <form class="centred ui form">
+            <input type="text" name="search" placeholder="Search..." value="{{ search }}">
+        </form>
+        {% if posts %}
+            <div class="ui cards">
+                {% for post in posts %}
+                    <div class="ui card">
+                        <div class="image">
+                            <img src="{{ post.image.url }}">
+                        </div>
+                        <div class="content">
+                            <a class="header">{{ post.title }}</a>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        {% else %}
+            <h3 class="ui header center aligned">No results!</h3>               
+        {% endif %}
+
+        {% if posts.has_next %}
+            <div class="ui divider"></div>
+
+            <a href="{% url 'list' %}?page={{ posts.next_page_number }}&search={{search}}">
+                <button class="ui button primary">
+                    Next Page
+                </button>
+            </a>
+        {% endif %}
+
+    </main>
+</body>
+</html>
