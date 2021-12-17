@@ -23,9 +23,10 @@
             hx-get="{% url 'search' %}" 
             hx-target="#search-results"
             hx-swap="outerHTML"
-            hx-trigger="change, keyup delay:0.3s"
+            hx-trigger="submit, input delay:0.3s"
+            id="form"
         >
-            <input type="text" name="search" placeholder="Search..." value="{{ search }}">
+            <input  type="text" name="search" placeholder="Search..." value="{{ search }}">
         </form>
         {% include 'search_results.html' %}
         {% include 'search_load_more.html' %}
