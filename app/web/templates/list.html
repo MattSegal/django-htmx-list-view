@@ -18,17 +18,14 @@
 <body>
     <main  class="ui container">
         <h1 class="ui header center aligned">List View</h1>
-        <form class="ui form centred">
-            <input 
-                name="search"
-                placeholder="Search..."
-                type="text" 
-                value="{{ search }}"
-                hx-get="{% url 'search' %}" 
-                hx-trigger="keyup changed delay:500ms" 
-                hx-target="#search-results"
-                hx-swap="outerHTML"
-            />
+        <form 
+            class="centred ui form"
+            hx-get="{% url 'search' %}" 
+            hx-target="#search-results"
+            hx-swap="outerHTML"
+            hx-trigger="change, keyup delay:0.3s"
+        >
+            <input type="text" name="search" placeholder="Search..." value="{{ search }}">
         </form>
         {% include 'search_results.html' %}
         {% include 'search_load_more.html' %}
