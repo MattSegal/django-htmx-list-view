@@ -22,13 +22,13 @@
             class="centred ui form"
             hx-get="{% url 'search' %}" 
             hx-target="#search-results"
-            hx-swap="outerHTML"
             hx-trigger="submit, input delay:0.3s"
         >
             <input type="text" name="search" placeholder="Search..." value="{{ search }}">
         </form>
-        {% include 'search_results.html' %}
-        {% include 'search_load_more.html' %}
+        <div id="search-results">
+            {% include 'search_results.html' %}
+        </div>
     </main>
     <script type="text/javascript" src="{% static 'htmx.min.js' %}"></script>
     <script>

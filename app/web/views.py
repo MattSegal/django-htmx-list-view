@@ -8,13 +8,13 @@ POSTS_PER_PAGE = 12
 
 def list_view(request):
     posts, search = _search_posts(request)
-    context = {"posts": posts, "search": search, "is_search_view": False}
+    context = {"posts": posts, "search": search}
     return render(request, "list.html", context)
 
 
 def list_search_view(request):
     posts, search = _search_posts(request)
-    context = {"posts": posts, "search": search, "is_search_view": True}
+    context = {"posts": posts, "search": search}
     return render(request, "search_results.html", context)
 
 
