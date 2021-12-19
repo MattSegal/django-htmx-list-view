@@ -4,6 +4,7 @@ This repo demonstrates how to use [htmx](https://htmx.org/) for a paginated, sea
 
 - [Before adding htmx](https://github.com/MattSegal/django-htmx-list-view/tree/before-htmx)
 - [After adding htmx](https://github.com/MattSegal/django-htmx-list-view/tree/after-htmx)
+- [Simplified implementation](https://github.com/MattSegal/django-htmx-list-view/tree/simplified-htmx)
 
 This repo is a part of this [tutorial article](https://mattsegal.dev/django-htmx-list-view.html). View a quick video demo [here](https://www.loom.com/share/d087a55bd667449386edd54868369f7f)
 
