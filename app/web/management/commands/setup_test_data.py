@@ -11,7 +11,7 @@ import requests
 
 from web.models import Post
 
-NUM_POSTS = 64
+NUM_POSTS = 20
 
 
 class Command(BaseCommand):
@@ -25,12 +25,12 @@ class Command(BaseCommand):
             print("Creating post", i)
             f = download_image(i)
             image = ImageFile(f, name=f"img-{i}.jpeg")
-            Post.objects.create(title=fake.sentence(), image=image)
+            Post.objects.create(title=fake.name(), image=image)
 
 
 def download_image(idx):
     print(f"Downloading image {idx} from thispersondoesnotexist...")
-    url = "https://thispersondoesnotexist.com/image"
+    url = "https://thispersondoesnotexist.com"
     r = requests.get(url, stream=True)
     r.raise_for_status()
     return io.BytesIO(r.content)
